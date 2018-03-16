@@ -286,6 +286,8 @@
     overflow: hidden;
     padding: 0 31.25rpx 25rpx 31.25rpx;
     background: #fff;
+    
+    
 }
 
 .goods-attr .t{
@@ -297,7 +299,7 @@
 
 .goods-attr .item{
     width: 687.5rpx;
-    height: 68rpx;
+    height: auto;
     padding: 11rpx 20rpx;
     margin-bottom: 11rpx;
     background: #f7f7f7;
@@ -308,8 +310,8 @@
     float: left;
     font-size: 25rpx;
     width: 134rpx;
-    height: 45rpx;
-    line-height: 45rpx;
+    height: auto;
+    
     overflow: hidden;
     color: #999;
 }
@@ -319,10 +321,11 @@
     font-size: 36.5rpx;
     margin-left: 20rpx;
     width: 480rpx;
-    height: 45rpx;
-    line-height: 45rpx;
+    height: auto;
+    
     overflow: hidden;
     color: #333;
+    word-wrap: normal;
 }
 
 .detail{
