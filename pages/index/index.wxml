@@ -14,7 +14,9 @@
       <text>{{item.name}}</text>
     </navigator>
   </view>
-  <view class="a-section a-brand">
+
+  <!-- 根据需求，隐藏这里 -->
+  <view class="a-section a-brand" style="display: none;">
     <view class="h">
       <navigator url="../brand/brand">
         <text class="txt">品牌制造商直供</text>
@@ -35,6 +37,7 @@
       </view>
     </view>
   </view>
+
   <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
     <view class="h">
       <view>
