@@ -59,20 +59,20 @@ page{
 
 .user-menu .item{
     float: left;
-    width: 33.33333%;
-    height: 187.5rpx;
+    width: 100%;
+    height: 140rpx;
     border-right: 1px solid rgba(0,0,0,.15);
     border-bottom: 1px solid rgba(0,0,0,.15);
-    text-align: center;
+    text-align: left;
 }
 
 .user-menu .item .a{
   display: flex;
   width: 100%;
   height: 100%;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .user-menu .item.no-border {
@@ -84,11 +84,12 @@ page{
 }
 
 .user-menu .icon{
-    margin: 0 auto;
+    margin-left: 50rpx;
+    margin-right: 50rpx;
     display: block;
     height: 52.803rpx;
     width: 52.803rpx;
-    margin-bottom: 16rpx;
+    
 }
 
 .user-menu .icon.order{
@@ -133,9 +134,9 @@ page{
 
 
 .user-menu .txt{
-    display: block;
-    height: 24rpx;
-    width: 100%;
+    display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
     font-size: 24rpx;
     color:#333;
 }

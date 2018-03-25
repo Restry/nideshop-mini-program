@@ -8,7 +8,7 @@
       </navigator>
     </swiper-item>
   </swiper>
-  <view class="m-menu">
+  <view class="m-menu" style="display: none;">
     <navigator  class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
       <image src="{{item.icon_url}}" background-size="cover"></image>
       <text>{{item.name}}</text>
@@ -38,7 +38,7 @@
     </view>
   </view>
 
-  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
+  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}" style="display: none;">
     <view class="h">
       <view>
         <navigator url="../newGoods/newGoods">
@@ -56,7 +56,7 @@
       </view>
     </view>
   </view>
-  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
+  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}" style="display: none;">
     <view class="h">
       <view>
         <navigator url="../hotGoods/hotGoods">
@@ -79,7 +79,7 @@
       </view>
     </view>
   </view>
-  <view class="a-section a-topic" wx:if="topics.length > 0">
+  <view class="a-section a-topic" wx:if="topics.length > 0" style="display: none;">
     <view class="h">
       <view>
       <navigator url="../topic/topic" open-type="switchTab">

@@ -16,6 +16,13 @@ Page({
       index: e.detail.value
     })
   },
+
+  submitFeedback : function()
+  {
+
+  },
+  
+
   onLoad: function (options) {
   },
   onReady: function () {
