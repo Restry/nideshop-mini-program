@@ -22,7 +22,7 @@ Page({
     // 页面隐藏
 
   },
-  onUnload: function () {
+  onUnload: function () { 
     // 页面关闭
 
   },

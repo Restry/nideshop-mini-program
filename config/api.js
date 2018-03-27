@@ -1,4 +1,4 @@
-const ApiRootUrl = 'http://192.168.1.14:8360/api/';
+const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 //const ApiRootUrl = 'http://47.75.6.235:8360/api/';
 
 module.exports = {
