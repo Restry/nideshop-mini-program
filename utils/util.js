@@ -145,10 +145,19 @@ function redirect(url) {
   }
 }
 
-function showErrorToast(msg) {
+function showErrorToast(msg, duration) {
   wx.showToast({
     title: msg,
-    image: '/static/images/icon_error.png'
+    image: '/static/images/icon_error.png',
+    duration : duration
+  })
+}
+
+function showOkToast(msg, duration) {
+  wx.showToast({
+    title: msg,
+    image: '/static/images/icon_ok.png',
+    duration : duration
   })
 }
 
@@ -157,6 +166,7 @@ module.exports = {
   request,
   redirect,
   showErrorToast,
+  showOkToast,
   checkSession,
   login,
   getUserInfo,

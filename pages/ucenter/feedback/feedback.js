@@ -11,9 +11,11 @@ Page({
     index: 0,
     content :  "",
     mobile : "",
+    contentLength: 0,
+    
+    isFeedbackOk : false, // 是否已成功反馈信息，反馈成功后会延迟一段时间进行跳转，期间不能再次提交
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
@@ -21,7 +23,8 @@ Page({
 
   bindinputContent(event) {
     this.setData({
-      content: event.detail.value
+      content: event.detail.value,
+      contentLength : event.detail.value.length,
     });
   },
 
@@ -33,7 +36,10 @@ Page({
 
   submitFeedback : function()
   {
-
+    if(this.data.isFeedbackOk)
+    {
+      return;
+    }
     if (this.data.index ==  0) {
       util.showErrorToast('请选择反馈类型');
       return false;
@@ -55,7 +61,13 @@ Page({
       mobile: this.data.mobile,
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
-        console.log("反馈成功");
+
+        that.data.isFeedbackOk = true;
+        util.showOkToast('我们已收到您的反馈，将尽快处理', 2000);
+
+        setTimeout(function () {  
+          wx.navigateBack();  
+        }, 2000) 
       }
     });
   },
