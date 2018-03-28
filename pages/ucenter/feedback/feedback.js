@@ -34,6 +34,12 @@ Page({
     });
   },
 
+  bindtapMobleClear(event) {
+    this.setData({
+      mobile: ""
+    });
+  },
+
   submitFeedback : function()
   {
     if(this.data.isFeedbackOk)

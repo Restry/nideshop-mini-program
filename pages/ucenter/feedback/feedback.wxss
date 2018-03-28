@@ -89,18 +89,25 @@ page{
   top: 27rpx;
   left: 30rpx;
   height: 50rpx;
-  width: 100%;
+  width: 90%;
   color: #333;
   line-height: 50rpx;
   font-size: 24rpx;
 }
 
+.clear-icon-box{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50rpx;
+  height: 50rpx;
+  left : 90%;
+}
+
 .clear-icon{
   position: absolute;
-  top: 43rpx;
-  right: 30rpx;
-  width: 28rpx;
-  height: 28rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .fb-btn{

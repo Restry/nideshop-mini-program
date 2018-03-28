@@ -23,7 +23,7 @@
         </view>
       </view>
     </view>
-    <view class="section-nav section-attr" bindtap="switchAttrPop">
+    <view class="section-nav section-attr" bindtap="switchAttrPop" style="display:none">
       <view class="t">请选择规格数量</view>
       <image class="i" src="../../static/images/address_right.png" background-size="cover"></image>
     </view>
@@ -140,8 +140,8 @@
       </view>
     </view>
   </view>
-  <view class="bottom-btn">
-    <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
+  <view class="bottom-btn" >
+    <view style="display:none" class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
       <image class="icon" src="{{ collectBackImage }}"></image>
     </view>
     <view class="l l-cart">

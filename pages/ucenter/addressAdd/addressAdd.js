@@ -57,8 +57,11 @@ Page({
     let that = this;
     util.request(api.AddressDetail, { id: that.data.addressId }).then(function (res) {
       if (res.errno === 0) {
+
+        Object.assign(that.data.address,res.data);
+
         that.setData({
-          address: res.data
+          address: that.data.address
         });
       }
     });
@@ -259,9 +262,11 @@ Page({
     });
   },
   cancelAddress(){
-    wx.navigateTo({
-      url: '/pages/ucenter/address/address',
-    })
+    // wx.navigateTo({
+    //   url: '/pages/ucenter/address/address',
+    // })
+
+    wx.navigateBack();
   },
   saveAddress(){
     console.log(this.data.address)
@@ -302,9 +307,10 @@ Page({
       is_default: address.is_default,
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
-        wx.navigateTo({
-          url: '/pages/ucenter/address/address',
-        })
+        // wx.navigateTo({
+        //   url: '/pages/ucenter/address/address',
+        // })
+        wx.navigateBack();
       }
     });
 

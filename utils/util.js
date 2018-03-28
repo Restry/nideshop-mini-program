@@ -145,7 +145,7 @@ function redirect(url) {
   }
 }
 
-function showErrorToast(msg, duration) {
+function showErrorToast(msg, duration = 1500) {
   wx.showToast({
     title: msg,
     image: '/static/images/icon_error.png',
@@ -153,7 +153,7 @@ function showErrorToast(msg, duration) {
   })
 }
 
-function showOkToast(msg, duration) {
+function showOkToast(msg, duration = 1500) {
   wx.showToast({
     title: msg,
     image: '/static/images/icon_ok.png',
