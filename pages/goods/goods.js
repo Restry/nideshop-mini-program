@@ -324,11 +324,7 @@ Page({
               });
             }
           } else {
-            wx.showToast({
-              image: '/static/images/icon_error.png',
-              title: _res.errmsg,
-              mask: true
-            });
+            util.showErrorToast(_res.errmsg);
           }
         });
     }
