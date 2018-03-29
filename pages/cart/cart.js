@@ -167,7 +167,7 @@ Page({
     }
 
   },
-  updateCart: function (productId, goodsId, number, id) {
+  updateCart: function (cartIndex, productId, goodsId, number, id) {
     let that = this;
 
     util.request(api.CartUpdate, {
@@ -181,6 +181,11 @@ Page({
         that.setData({
           //cartGoods: res.data.cartList,
           //cartTotal: res.data.cartTotal
+        });
+      } else{
+        that.data.cartGoods[cartIndex].number = number-1;
+        that.setData({
+          cartGoods : that.data.cartGoods
         });
       }
 
@@ -199,7 +204,7 @@ Page({
     this.setData({
       cartGoods: this.data.cartGoods
     });
-    this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+    this.updateCart(itemIndex, cartItem.product_id, cartItem.goods_id, number, cartItem.id);
   },
   addNumber: function (event) {
     let itemIndex = event.target.dataset.itemIndex;
@@ -209,7 +214,7 @@ Page({
     this.setData({
       cartGoods: this.data.cartGoods
     });
-    this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+    this.updateCart(itemIndex, cartItem.product_id, cartItem.goods_id, number, cartItem.id);
 
   },
   checkoutOrder: function () {

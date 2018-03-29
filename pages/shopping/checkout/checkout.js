@@ -110,18 +110,23 @@ Page({
     util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.id;
-        pay.payOrder(parseInt(orderId)).then(res => {
+        // pay.payOrder(parseInt(orderId)).then(res => {
+        //   wx.redirectTo({
+        //     url: '/pages/payResult/payResult?status=1&orderId=' + orderId
+        //   });
+        // }).catch(res => {
+        //   wx.redirectTo({
+        //     url: '/pages/payResult/payResult?status=0&orderId=' + orderId
+        //   });
+        // });
+
           wx.redirectTo({
-            url: '/pages/payResult/payResult?status=1&orderId=' + orderId
+            url: '/pages/ucenter/order/order'
           });
-        }).catch(res => {
-          wx.redirectTo({
-            url: '/pages/payResult/payResult?status=0&orderId=' + orderId
-          });
-        });
+        
       } else {
         //util.showErrorToast('下单失败');
-        util.showErrorToast(res.errmsg);
+        util.showNoIconToast(res.errmsg, 3000);
       }
     });
   }

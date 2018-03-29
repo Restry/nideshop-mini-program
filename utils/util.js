@@ -161,12 +161,22 @@ function showOkToast(msg, duration = 1500) {
   })
 }
 
+function showNoIconToast(msg, duration = 1500) {
+  wx.showToast({
+    title: msg,
+    icon : 'none',
+    duration : duration
+  })
+}
+
+
 module.exports = {
   formatTime,
   request,
   redirect,
   showErrorToast,
   showOkToast,
+  showNoIconToast,
   checkSession,
   login,
   getUserInfo,

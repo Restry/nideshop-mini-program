@@ -265,6 +265,59 @@ Page({
       url: '/pages/cart/cart',
     });
   },
+
+  buyNow : function()
+  {
+    var that = this;
+    
+    this.data.openAttr = true; // 直接加入购物车，不用选择规格
+
+    if (this.data.openAttr == false) {
+      //打开规格选择窗口
+      this.setData({
+        openAttr: !this.data.openAttr,
+        collectBackImage: "/static/images/detail_back.png"
+      });
+    } else {
+      
+      // 检测库存
+      if(this.data.number > this.data.goods.goods_number)
+      {
+        util.showErrorToast("库存不足啦");
+        return false;
+      }
+
+      //添加到购物车
+      util.request(api.CartAdd, { goodsId: this.data.goods.id, number: this.data.number /*,productId: checkedProduct[0].id*/ }, "POST")
+        .then(function (res) {
+          let _res = res;
+          if (_res.errno == 0) {
+            wx.showToast({
+              title: '添加成功'
+            });
+            that.setData({
+              openAttr: !that.data.openAttr,
+              cartGoodsCount: _res.data.cartTotal.goodsCount
+            });
+            if (that.data.userHasCollect == 1) {
+              that.setData({
+                'collectBackImage': that.data.hasCollectImage
+              });
+            } else {
+              that.setData({
+                'collectBackImage': that.data.noCollectImage
+              });
+            }
+
+            that.openCartPage(); // 打开购物车
+
+          } else {
+            util.showErrorToast(_res.errmsg);
+          }
+        });
+    }
+  },
+
   addToCart: function () {
     var that = this;
     
