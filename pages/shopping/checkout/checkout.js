@@ -20,25 +20,7 @@ Page({
   },
   onLoad: function (options) {
 
-    // 页面初始化 options为页面跳转所带来的参数
-
-    try {
-      var addressId = wx.getStorageSync('addressId');
-      if (addressId) {
-        this.setData({
-          'addressId': addressId
-        });
-      }
-
-      var couponId = wx.getStorageSync('couponId');
-      if (couponId) {
-        this.setData({
-          'couponId': couponId
-        });
-      }
-    } catch (e) {
-      // Do something when catch error
-    }
+    
 
 
   },
@@ -77,6 +59,27 @@ Page({
 
   },
   onShow: function () {
+
+    // 页面初始化 options为页面跳转所带来的参数
+
+    try {
+      var addressId = wx.getStorageSync('addressId');
+      if (addressId) {
+        this.setData({
+          'addressId': addressId
+        });
+      }
+
+      var couponId = wx.getStorageSync('couponId');
+      if (couponId) {
+        this.setData({
+          'couponId': couponId
+        });
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+
     // 页面显示
     wx.showLoading({
       title: '加载中...',

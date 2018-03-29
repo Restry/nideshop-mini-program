@@ -57,8 +57,9 @@ Page({
     let that = this;
     util.request(api.AddressDetail, { id: that.data.addressId }).then(function (res) {
       if (res.errno === 0) {
+        Object.assign(that.data.address,res.data);
         that.setData({
-          address: res.data
+          address: that.data.address
         });
       }
     });
@@ -302,9 +303,10 @@ Page({
       is_default: address.is_default,
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
-        wx.reLaunch({
-          url: '/pages/shopping/address/address',
-        })
+        // wx.reLaunch({
+        //   url: '/pages/shopping/address/address',
+        // })
+        wx.navigateBack();
       }
     });
 
