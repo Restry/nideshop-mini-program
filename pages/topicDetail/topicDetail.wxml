@@ -5,7 +5,7 @@
   </scroll-view>
   <view class="topic-goods">
   </view>
-  <scroll-view class="comments">
+  <scroll-view class="comments" style="display:none">
     <view class="h">
       <text class="t">精选留言</text>
       <image bindtap="postComment" class="i" src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/comment-add-2aca147c3f.png"></image>

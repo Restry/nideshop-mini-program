@@ -60,7 +60,8 @@ Page({
   },
   onShow: function () {
     // 页面显示
-    this.getCommentList();
+    // 不加载评论
+    //this.getCommentList();
   },
   onHide: function () {
     // 页面隐藏
