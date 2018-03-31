@@ -3,11 +3,16 @@
 <view class="container">
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
-      <navigator url="{{item.link}}">
+      <navigator wx:if="{{item.media_type==0}}" url="/pages/goods/goods?id={{item.media_id}}">
         <image src="{{item.image_url}}" background-size="cover"></image>
       </navigator>
+      <navigator wx:elif="{{item.media_type==1}}" url="/pages/topicDetail/topicDetail?id={{item.media_id}}">
+        <image src="{{item.image_url}}" background-size="cover"></image>
+      </navigator>
+
     </swiper-item>
   </swiper>
+
   <view class="m-menu" style="display: none;">
     <navigator  class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
       <image src="{{item.icon_url}}" background-size="cover"></image>
