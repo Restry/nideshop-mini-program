@@ -78,6 +78,12 @@
         </view>
     </view>
 
+    <view class="fb-body">
+        <textarea class="content" maxlength="150" placeholder="您可以把要求写在这里" 
+        value="{{postscript}}" bindinput="bindinputContent"/>
+        <view class="text-count">{{contentLength}}/150</view>
+    </view>
+
     <view class="order-total">
         <view class="l">实付：￥{{actualPrice}}</view>
         <!--<view class="r" bindtap="submitOrder">去付款</view>-->

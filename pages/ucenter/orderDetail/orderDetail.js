@@ -28,6 +28,11 @@ Page({
           handleOption: res.data.handleOption
         });
         //that.payTimer();
+      }else{
+        util.showErrorToast(res.errmsg);
+        setTimeout(() => {
+          wx.navigateBack();  
+        }, 1500);
       }
     });
   },

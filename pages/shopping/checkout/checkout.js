@@ -16,12 +16,11 @@ Page({
     orderTotalPrice: 0.00,  //订单总价
     actualPrice: 0.00,     //实际需要支付的总价
     addressId: 0,
-    couponId: 0
+    couponId: 0,
+    postscript:'', // 用户留言
+    contentLength:0,
   },
   onLoad: function (options) {
-
-    
-
 
   },
   getCheckoutInfo: function () {
@@ -68,6 +67,14 @@ Page({
         this.setData({
           'addressId': addressId
         });
+      } else{
+
+        if(this.data.checkedAddress && this.data.checkedAddress.id && this.data.checkedAddress.id>0)
+        {
+          this.setData({
+            'addressId': this.data.checkedAddress.id
+          });
+        }
       }
 
       var couponId = wx.getStorageSync('couponId');
@@ -107,9 +114,11 @@ Page({
       return false;
     }
 
-    util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId }, 'POST').then(res => {
+    this.data.addressId = this.data.checkedAddress.id;
+
+    util.request(api.OrderSubmit, { addressId: this.data.addressId, couponId: this.data.couponId, postscript:this.data.postscript }, 'POST').then(res => {
       if (res.errno === 0) {
-        const orderId = res.data.orderInfo.id;
+        const orderId = res.data.orderInfos[0].id;
         // pay.payOrder(parseInt(orderId)).then(res => {
         //   wx.redirectTo({
         //     url: '/pages/payResult/payResult?status=1&orderId=' + orderId
@@ -129,5 +138,12 @@ Page({
         util.showNoIconToast(res.errmsg, 3000);
       }
     });
-  }
+  },
+
+  bindinputContent(event) {
+    this.setData({
+      postscript: event.detail.value,
+      contentLength : event.detail.value.length,
+    });
+  },
 })

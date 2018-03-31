@@ -272,13 +272,13 @@ Page({
     
     this.data.openAttr = true; // 直接加入购物车，不用选择规格
 
-    if (this.data.openAttr == false) {
-      //打开规格选择窗口
-      this.setData({
-        openAttr: !this.data.openAttr,
-        collectBackImage: "/static/images/detail_back.png"
-      });
-    } else {
+    // if (this.data.openAttr == false) {
+    //   //打开规格选择窗口
+    //   this.setData({
+    //     openAttr: !this.data.openAttr,
+    //     collectBackImage: "/static/images/detail_back.png"
+    //   });
+    // } else {
       
       // 检测库存
       if(this.data.number > this.data.goods.goods_number)
@@ -315,7 +315,7 @@ Page({
             util.showErrorToast(_res.errmsg);
           }
         });
-    }
+    // }
   },
 
   addToCart: function () {
@@ -332,9 +332,9 @@ Page({
     } else {
 
       //提示选择完整规格
-      if (!this.isCheckedAllSpec()) {
-        return false;
-      }
+      // if (!this.isCheckedAllSpec()) {
+      //   return false;
+      // }
 
       //根据选中的规格，判断是否有对应的sku信息
       // let checkedProduct = this.getCheckedProductItem(this.getCheckedSpecKey());
