@@ -5,7 +5,10 @@
         <view class="item-c">
             <view class="l">实付：<text class="cost">￥{{orderInfo.actual_price}}</text></view>
             <view class="r">
-                <view class="btn" bindtap="cancelOrder">取消订单</view>
+                <view wx:if="{{orderInfo.order_status==0}}" class="btn" bindtap="cancelOrder">取消订单</view>
+                <view wx:if="{{orderInfo.order_status==3}}" class="btn" bindtap="goExpress">查看物流</view>
+                <view wx:if="{{orderInfo.order_status==3}}" class="btn" bindtap="confirmOrder">确认收货</view>
+                
                 <!--<view class="btn active" bindtap="payOrder">去付款</view>-->
             </view>
         </view>
@@ -15,6 +18,7 @@
         <view class="h">
             <view class="label">商品信息</view>
             <view class="status">{{orderInfo.order_status_text}}</view>
+            
         </view>
         <view class="goods">
             <view class="item" wx:for="{{orderGoods}}" wx:key="{{item.id}}">

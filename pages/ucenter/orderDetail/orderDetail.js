@@ -70,8 +70,66 @@ Page({
         });
       }
     });
-
   },
+
+  cancelOrder()
+  {
+
+    let that = this;
+
+    wx.showModal({
+      title: '',
+      content: '确定要取消该订单吗？',
+      success: function (res) {
+        if (res.confirm) {
+          util.request(api.OrderCancel, {
+            orderId: that.data.orderId
+          }).then(function (res) {
+            if (res.errno === 0) {
+              that.getOrderDetail();
+            }else{
+              let duration = util.showErrorToast(res.errmsg);
+            }
+          });
+        }
+      }
+    });
+    
+  },
+
+  confirmOrder()
+  {
+    let that = this;
+
+    wx.showModal({
+      title: '',
+      content: '确定已收货？',
+      success: function (res) {
+        if (res.confirm) {
+          util.request(api.OrderConfirm, {
+            orderId: that.data.orderId
+          }).then(function (res) {
+            if (res.errno === 0) {
+              that.getOrderDetail();
+            }else{
+              let duration = util.showErrorToast(res.errmsg);
+            }
+          });
+        }
+      }
+    });
+    
+  },
+
+
+  goExpress()
+  {
+    let that = this;
+    wx.navigateTo({
+      url: '/pages/ucenter/express/express?id=' + that.data.orderId,
+    })
+  },
+
   onReady: function () {
     // 页面渲染完成
   },
