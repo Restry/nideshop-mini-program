@@ -68,7 +68,7 @@ Page({
     let that = this;
 
     if (!this.data.isEditCart) {
-      util.request(api.CartChecked, { productIds: that.data.cartGoods[itemIndex].product_id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
+      util.request(api.CartChecked, { goodsIds: that.data.cartGoods[itemIndex].goods_id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
         if (res.errno === 0) {
           console.log(res.data);
           that.setData({
@@ -112,10 +112,10 @@ Page({
     let that = this;
 
     if (!this.data.isEditCart) {
-      var productIds = this.data.cartGoods.map(function (v) {
-        return v.product_id;
+      var goodsIds = this.data.cartGoods.map(function (v) {
+        return v.goods_id;
       });
-      util.request(api.CartChecked, { productIds: productIds.join(','), isChecked: that.isCheckedAll() ? 0 : 1 }, 'POST').then(function (res) {
+      util.request(api.CartChecked, { goodsIds: goodsIds.join(','), isChecked: that.isCheckedAll() ? 0 : 1 }, 'POST').then(function (res) {
         if (res.errno === 0) {
           console.log(res.data);
           that.setData({
@@ -230,6 +230,7 @@ Page({
     });
 
     if (checkedGoods.length <= 0) {
+      util.showNoIconToast("请选择要下单的商品");
       return false;
     }
 
@@ -242,7 +243,7 @@ Page({
     //获取已选择的商品
     let that = this;
 
-    let productIds = this.data.cartGoods.filter(function (element, index, array) {
+    let goodsIds = this.data.cartGoods.filter(function (element, index, array) {
       if (element.checked == true) {
         return true;
       } else {
@@ -250,19 +251,19 @@ Page({
       }
     });
 
-    if (productIds.length <= 0) {
+    if (goodsIds.length <= 0) {
       return false;
     }
 
-    productIds = productIds.map(function (element, index, array) {
+    goodsIds = goodsIds.map(function (element, index, array) {
       if (element.checked == true) {
-        return element.product_id;
+        return element.goods_id;
       }
     });
 
 
     util.request(api.CartDelete, {
-      productIds: productIds.join(',')
+      goodsIds: goodsIds.join(',')
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
         console.log(res.data);

@@ -33,6 +33,13 @@
         </view>
     </view>
 
+    <view class="fb-body">
+        <view class="h">
+            <view class="label">买家留言</view>
+        </view>
+        <textarea class="content" value="{{orderInfo.postscript}}" disabled="true"/>
+    </view>
+
     <view class="order-bottom">
         <view class="address">
             <view class="t">

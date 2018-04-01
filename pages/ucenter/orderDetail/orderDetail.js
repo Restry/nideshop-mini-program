@@ -29,10 +29,10 @@ Page({
         });
         //that.payTimer();
       }else{
-        util.showErrorToast(res.errmsg);
+        let duration = util.showErrorToast(res.errmsg);
         setTimeout(() => {
           wx.navigateBack();  
-        }, 1500);
+        }, duration);
       }
     });
   },

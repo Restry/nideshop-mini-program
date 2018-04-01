@@ -253,3 +253,35 @@ page{
     width: 140rpx;
     color: #b4282d;
 }
+
+.fb-body{
+    width: 100%;
+    background: #fff;
+    height: 303rpx;
+    padding: 18rpx 50rpx 0rpx 30rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+  }
+  
+.fb-body .content{
+    width: 100%;
+    height: 100%;
+    color: #333;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    margin-top: 10rpx;
+  }
+  
+.fb-body .h{
+    height: 93rpx;
+    line-height: 93rpx;
+    margin-left: 31rpx;
+    border-bottom: 1px solid #f4f4f4;
+    padding-right: 31rpx;
+}
+
+.fb-body .h .label{
+    float: left;
+    font-size: 30rpx;
+    color: #333;
+}

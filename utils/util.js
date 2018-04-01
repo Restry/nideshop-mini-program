@@ -145,28 +145,31 @@ function redirect(url) {
   }
 }
 
-function showErrorToast(msg, duration = 1500) {
+function showErrorToast(msg, duration = 2000) {
   wx.showToast({
     title: msg,
     image: '/static/images/icon_error.png',
     duration : duration
-  })
+  });
+  return duration;
 }
 
-function showOkToast(msg, duration = 1500) {
+function showOkToast(msg, duration = 2000) {
   wx.showToast({
     title: msg,
     image: '/static/images/icon_ok.png',
     duration : duration
-  })
+  });
+  return duration;
 }
 
-function showNoIconToast(msg, duration = 1500) {
+function showNoIconToast(msg, duration = 2000) {
   wx.showToast({
     title: msg,
     icon : 'none',
     duration : duration
-  })
+  });
+  return duration;
 }
 
 

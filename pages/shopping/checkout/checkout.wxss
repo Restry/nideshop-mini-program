@@ -297,8 +297,9 @@ page{
 .fb-body{
     width: 100%;
     background: #fff;
-    height: 374rpx;
-    padding: 18rpx 10rpx 100rpx 30rpx;
+    height: 200rpx;
+    padding: 18rpx 10rpx 10rpx 30rpx;
+    margin-bottom: 100rpx;
   }
   
   .fb-body .content{
