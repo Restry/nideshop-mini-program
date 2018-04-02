@@ -9,7 +9,7 @@
       <navigator wx:elif="{{item.media_type==1}}" url="/pages/topicDetail/topicDetail?id={{item.media_id}}">
         <image src="{{item.image_url}}" background-size="cover"></image>
       </navigator>
-
+        <image wx:else src="{{item.image_url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
 
