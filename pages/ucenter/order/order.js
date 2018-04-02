@@ -11,6 +11,8 @@ Page({
     // this.getOrderList();
   },
   getOrderList(){
+    wx.showNavigationBarLoading();
+    
     let that = this;
     util.request(api.OrderList).then(function (res) {
       if (res.errno === 0) {
@@ -19,13 +21,31 @@ Page({
           orderList: res.data.data
         });
       }
-    });
+    // 隐藏导航栏加载框  
+    wx.hideNavigationBarLoading();  
+    // 停止下拉动作  
+    wx.stopPullDownRefresh();
+  }, function(err){
+    
+    // 隐藏导航栏加载框  
+    wx.hideNavigationBarLoading();  
+    // 停止下拉动作  
+    wx.stopPullDownRefresh();
+  });
+
+    
   },
   payOrder(){
     wx.redirectTo({
       url: '/pages/pay/pay',
     })
   },
+
+  onPullDownRefresh:function()
+  {
+    this.getOrderList();
+  },
+
   onReady:function(){
     // 页面渲染完成
   },

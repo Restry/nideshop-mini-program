@@ -23,6 +23,9 @@ Page({
   },
 
   getIndexData: function () {
+
+    wx.showNavigationBarLoading();
+
     let that = this;
     util.request(api.IndexUrl).then(function (res) {
       if (res.errno === 0) {
@@ -36,8 +39,24 @@ Page({
           channel: res.data.channel
         });
       }
+
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();  
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
+    }, function(err){
+      
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();  
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
     });
   },
+  onPullDownRefresh:function()
+  {
+    this.getIndexData();
+  },
+
   onLoad: function (options) {
     this.getIndexData();
   },
