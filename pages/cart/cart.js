@@ -16,6 +16,12 @@ Page({
     checkedAllStatus: true,
     editCartList: []
   },
+
+  onPullDownRefresh:function()
+  {
+    this.getCartList();
+  },
+
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
 
@@ -38,6 +44,9 @@ Page({
 
   },
   getCartList: function () {
+
+    wx.showNavigationBarLoading();
+
     let that = this;
     util.request(api.CartList).then(function (res) {
       if (res.errno === 0) {
@@ -51,6 +60,18 @@ Page({
       that.setData({
         checkedAllStatus: that.isCheckedAll()
       });
+
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();  
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
+      
+    }, function(err){
+      
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();  
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
     });
   },
   isCheckedAll: function () {

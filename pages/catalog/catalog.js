@@ -16,6 +16,9 @@ Page({
   },
   getCatalog: function () {
     //CatalogList
+
+    wx.showNavigationBarLoading();
+
     let that = this;
     wx.showLoading({
       title: '加载中...',
@@ -26,7 +29,20 @@ Page({
           currentCategory: res.data.currentCategory
         });
         wx.hideLoading();
-      });
+
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();  
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
+    }, function(err){
+      
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();  
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
+    });
+
+
     util.request(api.GoodsCount).then(function (res) {
       that.setData({
         goodsCount: res.data.goodsCount
@@ -34,6 +50,8 @@ Page({
     });
 
   },
+
+
   getCurrentCategory: function (id) {
     let that = this;
     util.request(api.CatalogCurrent, { id: id })
@@ -43,6 +61,12 @@ Page({
         });
       });
   },
+
+  onPullDownRefresh:function()
+  {
+    this.getCatalog();
+  },
+  
   onReady: function () {
     // 页面渲染完成
   },

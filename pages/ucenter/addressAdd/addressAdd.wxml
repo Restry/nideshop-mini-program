@@ -1,5 +1,5 @@
 <view class="add-address">
-    <view class="add-form">
+    <view class="add-form" >
         <view class="form-item">
             <input class="input" bindinput="bindinputName" placeholder="姓名" value="{{address.name}}" auto-focus/>
         </view>
@@ -30,9 +30,9 @@
         <view class="done {{selectRegionDone ? '' : 'disabled'}}" bindtap="doneSelectRegion">确定</view>
       </view>
       <view class="bd">
-        <view class="region-list">
+        <scroll-view scroll-y="true" class="region-list" style="height: 100%">
           <view class="item {{item.selected ? 'selected' : ''}}" bindtap="selectRegion" data-region-index="{{index}}" wx:for="{{regionList}}" wx:key="{{item.id}}">{{item.name}}</view>
-        </view>
+        </scroll-view>
       </view>
     </view>
 </view>
