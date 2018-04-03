@@ -170,7 +170,7 @@ page{
 .order-box .order-item .r{
     float: right;
     text-align: right;
-    width: 50%;
+    width: 80%;
     height: 52rpx;
     line-height: 52rpx;
     overflow: hidden;

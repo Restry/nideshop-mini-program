@@ -308,10 +308,9 @@
 
 .goods-attr .left{
     float: left;
-    font-size: 25rpx;
+    font-size: 36.5rpx;
     width: 134rpx;
     height: auto;
-    
     overflow: hidden;
     color: #999;
 }
@@ -322,7 +321,6 @@
     margin-left: 20rpx;
     width: 480rpx;
     height: auto;
-    
     overflow: hidden;
     color: #333;
     word-wrap: normal;
