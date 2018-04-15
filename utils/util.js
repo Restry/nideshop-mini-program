@@ -145,32 +145,60 @@ function redirect(url) {
   }
 }
 
-function showErrorToast(msg, duration = 2000) {
+function showErrorToast(msg, duration = 2000, mask = false) {
   wx.showToast({
     title: msg,
     image: '/static/images/icon_error.png',
-    duration : duration
+    duration : duration,
+    mask: mask
   });
   return duration;
 }
 
-function showOkToast(msg, duration = 2000) {
+function showOkToast(msg, duration = 2000, mask = false) {
   wx.showToast({
     title: msg,
     image: '/static/images/icon_ok.png',
-    duration : duration
+    duration : duration,
+    mask: mask
   });
   return duration;
 }
 
-function showNoIconToast(msg, duration = 2000) {
+function showNoIconToast(msg, duration = 2000, mask = false) {
   wx.showToast({
     title: msg,
     icon : 'none',
-    duration : duration
+    duration : duration,
+    mask: mask
   });
   return duration;
 }
+
+let cacheOnlineSystemConfig = null;
+
+/**
+ * 获取在线参数
+ * @param {回调} callback 
+ */
+function getOnlineSystemConfig(callback)
+{
+  if(!cacheOnlineSystemConfig)
+  {
+    let that = this;
+    that.request(api.SystemConfig, {
+    }).then(function (res) {
+      if (res.errno === 0) {
+        that.cacheOnlineSystemConfig = res.data;
+        if(callback)callback(res.data);
+      }else{
+        if(callback)callback(null);
+      }
+    });
+  }else{
+    if(callback)callback(cacheOnlineSystemConfig);
+  }
+} 
 
 
 module.exports = {
@@ -183,6 +211,7 @@ module.exports = {
   checkSession,
   login,
   getUserInfo,
+  getOnlineSystemConfig,
 }
 
 

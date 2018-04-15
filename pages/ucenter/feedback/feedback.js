@@ -38,10 +38,12 @@ Page({
     this.setData({
       mobile: ""
     });
-  },
+  }, 
 
   submitFeedback : function()
   {
+
+
     if(this.data.isFeedbackOk)
     {
       return;

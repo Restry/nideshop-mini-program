@@ -6,7 +6,8 @@ Page({
     orderId: 0,
     orderInfo: {},
     orderGoods: [],
-    handleOption: {}
+    handleOption: {},
+    isPending: true, // 是否是审核模式
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -14,6 +15,16 @@ Page({
       orderId: options.id
     });
     this.getOrderDetail();
+
+    util.getOnlineSystemConfig((config)=>{
+        if(config)
+        {
+          this.setData({
+            isPending : config.is_pending!=0
+          });
+        }
+        
+    })
   },
   getOrderDetail() {
     let that = this;
@@ -70,6 +81,26 @@ Page({
         });
       }
     });
+  },
+
+  pay()
+  {
+    let that = this;
+
+    var imgalist = [that.data.orderInfo.pay_qrcode];
+
+    wx.previewImage({  
+      current: imgalist,
+      urls: imgalist,
+    })
+  },
+
+  contactSeller()
+  {
+    var that = this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.orderInfo.seller_contact
+    })
   },
 
   cancelOrder()

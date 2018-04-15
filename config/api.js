@@ -1,5 +1,5 @@
-const ApiRootUrl = 'https://flyinthesky.cn/api/';
-// const ApiRootUrl = 'http://127.0.0.1:8360/api/';
+//const ApiRootUrl = 'https://flyinthesky.cn/api/';
+ const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 
 module.exports = {
   IndexUrl: ApiRootUrl + 'index/index', //首页数据接口
@@ -63,4 +63,7 @@ module.exports = {
   FootprintDelete: ApiRootUrl + 'footprint/delete',  //删除足迹
 
   Feedback: ApiRootUrl + 'feedback/index',  // 意见反馈
+
+  SystemConfig: ApiRootUrl + 'systemConfig/index',  // 系统反馈
+  
 };

@@ -129,9 +129,13 @@ Page({
         //   });
         // });
 
+        let duration = util.showOkToast('下单成功', 2000, true);
+
+        setTimeout(function () {  
           wx.redirectTo({
             url: '/pages/ucenter/order/order'
           });
+        }, duration);
         
       } else {
         //util.showErrorToast('下单失败');

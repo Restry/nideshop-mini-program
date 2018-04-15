@@ -5,14 +5,24 @@ var app = getApp();
 
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    providerContact: null, // 客服联系方式
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     console.log(app.globalData)
+
+    let that =this;
+    util.getOnlineSystemConfig((config)=>{
+      if(config)
+      {
+        that.setData({providerContact: config.provider_contact});
+      }
+    });
   },
   onReady: function () {
 
+    
   },
   onShow: function () {
 
@@ -47,7 +57,17 @@ Page({
     }).catch((err) => {
       console.log(err)
     });
+    
   },
+
+  contactUs(){
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    var that = this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.providerContact
+    })
+  },
+
   exitLogin: function () {
     wx.showModal({
       title: '',

@@ -59,6 +59,8 @@ Page({
 
   onLoad: function (options) {
     this.getIndexData();
+
+    util.getOnlineSystemConfig(); // 获取全局在线参数
   },
   onReady: function () {
     // 页面渲染完成

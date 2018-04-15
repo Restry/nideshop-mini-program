@@ -181,13 +181,13 @@ page{
 }
 
 .goods-items{
-    margin-top: 20rpx;
     width: 100%;
     height: auto;
     overflow: hidden;
     background: #fff;
     padding-left: 31.25rpx;
-    margin-bottom: 20rpx;
+    padding-bottom: 100rpx;
+    margin-top: 20rpx;
 }
 
 .goods-items .item{
@@ -295,11 +295,12 @@ page{
 }
 
 .fb-body{
+    margin-top: 20rpx;
     width: 100%;
     background: #fff;
     height: 200rpx;
-    padding: 18rpx 10rpx 10rpx 30rpx;
-    margin-bottom: 100rpx;
+    padding: 18rpx 10rpx 10rpx 10rpx;
+    margin-bottom: 0rpx;
   }
   
   .fb-body .content{

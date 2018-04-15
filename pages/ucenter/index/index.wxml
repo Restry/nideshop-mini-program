@@ -56,11 +56,11 @@
         <text class="txt">账号安全</text>
       </navigator>
     </view>
-    <view class="item no-border">
-      <navigator url="url" class="a">
+    <view wx:if="{{providerContact && providerContact!=''}}" class="item no-border" bindtap="contactUs">
+      <view url="url" class="a">
         <text class="icon kefu"></text>
         <text class="txt">联系客服</text>
-      </navigator>
+      </view>
     </view>
     <view class="item" style="display:none">
       <navigator url="url" class="a">

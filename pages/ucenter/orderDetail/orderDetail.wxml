@@ -5,9 +5,11 @@
         <view class="item-c">
             <view class="l">实付：<text class="cost">￥{{orderInfo.actual_price}}</text></view>
             <view class="r">
-                <view wx:if="{{orderInfo.order_status==0}}" class="btn" bindtap="cancelOrder">取消订单</view>
+                <view wx:if="{{orderInfo.order_status==0 || orderInfo.order_status==1}}" class="btn" bindtap="cancelOrder">取消订单</view>
+                <view wx:if="{{orderInfo.order_status==1 && orderInfo.pay_qrcode && !isPending}}" class="btnSafe" bindtap="pay">付款</view>
                 <view wx:if="{{orderInfo.order_status==3}}" class="btn" bindtap="goExpress">查看物流</view>
                 <view wx:if="{{orderInfo.order_status==3}}" class="btn" bindtap="confirmOrder">确认收货</view>
+                <view wx:if="{{orderInfo.pay_qrcode}}" class="btnHight" bindtap="contactSeller">联系客服</view>
                 
                 <!--<view class="btn active" bindtap="payOrder">去付款</view>-->
             </view>
@@ -59,7 +61,7 @@
             </view>
             <view class="t">
                 <text class="label">运费：</text>
-                <text class="txt">￥{{orderInfo.freight_price}}</text>
+                <text class="txt" style="color:#FF6005;">￥{{orderInfo.freight_price}}</text>
             </view>
         </view>
         <view class="pay-fee">

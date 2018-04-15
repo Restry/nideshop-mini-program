@@ -318,6 +318,14 @@ Page({
     // }
   },
 
+  contactSeller()
+  {
+    var that = this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.goods.seller_contact
+    })
+  },
+
   addToCart: function () {
     var that = this;
     

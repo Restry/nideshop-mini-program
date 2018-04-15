@@ -330,6 +330,7 @@ page{
     height: 34rpx;
     flex: 1;
     margin: 33rpx 10rpx;
+    line-height: 34rpx;
     font-size: 29rpx;
 }
 
@@ -337,6 +338,7 @@ page{
 .cart-bottom .delete{
     height: 34rpx;
     width: auto;
+    line-height: 34rpx;
     margin: 33rpx 18rpx;
     font-size: 29rpx;
 }

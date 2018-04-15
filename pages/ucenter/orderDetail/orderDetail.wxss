@@ -66,6 +66,26 @@ page{
     height: 66rpx;
 }
 
+.item-c .btnSafe{
+    line-height: 66rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    color:green;
+    margin: 0 15rpx;
+    padding: 0 20rpx;
+    height: 66rpx;
+}
+
+.item-c .btnHight{
+    line-height: 66rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    color:red;
+    margin: 0 15rpx;
+    padding: 0 20rpx;
+    height: 66rpx;
+}
+
 .item-c .btn.active{
     background: #b4282d;
     color: #fff;
