@@ -45,7 +45,6 @@
   width: 750rpx;
   height: auto;
   overflow: hidden;
-  background: #fff;
   color: #333;
   margin-top: 0rpx;
 }
@@ -174,7 +173,8 @@
 }
 
 .a-popular .b .item {
-  border-top: 1px solid #d9d9d9;
+  border-top: 0px solid #d9d9d9;
+  background: #fff;
   margin: 0 20rpx;
   height: 264rpx;
   width: 710rpx;

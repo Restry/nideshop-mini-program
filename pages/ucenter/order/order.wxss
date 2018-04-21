@@ -61,11 +61,15 @@ page{
 
 .order .goods .name{
     margin-top: 30rpx;
-    display: block;
-    height: 44rpx;
-    line-height: 44rpx;
+    height: auto;
     color: #333;
     font-size: 30rpx;
+
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
 }
 
 .order .goods .number{

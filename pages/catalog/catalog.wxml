@@ -12,7 +12,7 @@
     <scroll-view class="cate" scroll-y="true">
         <navigator url="url" class="banner">
             <image class="image" src="{{currentCategory.wap_banner_url}}"></image>
-            <view class="txt">{{currentCategory.front_name}}</view>
+            <view class="txt" style="display:none;">{{currentCategory.front_name}}</view>
         </navigator>
         <view class="hd">
             <text class="line"></text>
