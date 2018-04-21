@@ -24,6 +24,18 @@ Page({
     hasCollectImage: "/static/images/icon_collect_checked.png",
     collectBackImage: "/static/images/icon_collect.png"
   },
+
+  onShareAppMessage: function () {
+
+    let id = this.data.id;
+    let title = this.data.goods.name + "¥" + this.data.goods.retail_price;
+    return {
+      title: title,
+      desc: app.globalData.shareSubTitle,
+      path: '/pages/goods/goods?id=' + id
+    }
+  },
+  
   getGoodsInfo: function () {
     let that = this;
     util.request(api.GoodsDetail, { id: that.data.id }).then(function (res) {
@@ -260,6 +272,14 @@ Page({
     }
 
   },
+
+  openHomePage : function()
+  {
+    wx.switchTab({
+      url: '/pages/index/index',
+    });
+  },
+
   openCartPage: function () {
     wx.switchTab({
       url: '/pages/cart/cart',

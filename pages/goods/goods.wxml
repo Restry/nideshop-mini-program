@@ -1,6 +1,6 @@
 <scroll-view class="container" scroll-y="true">
   <view wx:if="{{!openAttr}}">
-    <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper class="goodsimgs" indicator-dots="true" autoplay="false" interval="9999999999" duration="500">
       <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
         <image src="{{item.img_url}}" background-size="cover"></image>
       </swiper-item>
@@ -157,15 +157,22 @@
       </view>
     </view>
   </view>
-  <view class="bottom-btn" >
+  
+</scroll-view>
+
+<view class="bottom-btn" >
     <view style="display:none" class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
       <image class="icon" src="{{ collectBackImage }}"></image>
+    </view>
+     <view class="l l-cart">
+      <view class="box">
+        <image bindtap="openHomePage" class="icon" src="/static/images/ic_menu_choice_nor.png"></image>
+      </view>
     </view>
     <view class="l l-cart">
       <view class="box">
         <text class="cart-count">{{cartGoodsCount}}</text>
         <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
-
       </view>
     </view>
     <view class="c" wx:if="{{goods.seller_contact!=''}}" bindtap="contactSeller">联系商家</view>
@@ -173,4 +180,3 @@
     <view class="r" bindtap="addToCart">加入购物车</view>
     
   </view>
-</scroll-view>

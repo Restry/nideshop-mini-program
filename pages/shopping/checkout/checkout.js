@@ -129,13 +129,31 @@ Page({
         //   });
         // });
 
-        let duration = util.showOkToast('下单成功', 2000, true);
+        // let duration = util.showOkToast('下单成功', 2000, true);
+        // setTimeout(function () {  
+        //   wx.redirectTo({
+        //     url: '/pages/ucenter/order/order'
+        //   });
+        // }, duration);
 
-        setTimeout(function () {  
-          wx.redirectTo({
-            url: '/pages/ucenter/order/order'
-          });
-        }, duration);
+        wx.showModal({
+          title: '下单成功',
+          content: '我们将尽快与您联系',
+          confirmText:'查看订单',
+          cancelText: '回到首页',
+          success: function (res) {
+            if (res.confirm) {
+              wx.redirectTo({
+                url: '/pages/ucenter/order/order'
+              });
+            }else if(res.cancel){
+
+              wx.switchTab({
+                url: '/pages/index/index',
+              });
+            }
+          }
+        });
         
       } else {
         //util.showErrorToast('下单失败');
@@ -150,4 +168,55 @@ Page({
       contentLength : event.detail.value.length,
     });
   },
+
+  seePay :function()
+  {
+    let that = this;
+    
+
+    wx.showModal({
+      title: '付款流程提醒',
+      content: '请长按保存图片，再通过微信首页扫一扫-相册-选择此图-支付金额',
+      confirmText:'知道了',
+      showCancel:false,
+      success: function (res) {
+        var imgalist = ['https://cdn.flyinthesky.cn/static/upload/pics/final/21a03718-19bb-4e4b-acd2-2a0c95bfccc8.jpg'];
+        wx.previewImage({  
+          current: imgalist,
+          urls: imgalist,
+        });
+      }
+    });
+  },
+
+  savePay :function()
+  {
+
+    util.saveImgToPhotosAlbum('https://cdn.flyinthesky.cn/static/upload/pics/final/21a03718-19bb-4e4b-acd2-2a0c95bfccc8.jpg',(isSuccess, isUserReject)=>{
+      if(isSuccess)
+      {
+
+        wx.showModal({
+          title: '保存成功',
+          content: '您可以通过微信首页识别该二维码付款了',
+          confirmText:'知道了',
+          showCancel:false,
+          success: function (res) {
+          }
+        })
+
+      }
+      else
+      {
+        if(isUserReject)
+        {
+          util.showErrorToast("请允许保存")
+        }else{
+          util.showErrorToast("保存失败")
+        }
+      }
+
+    });
+    
+  }
 })

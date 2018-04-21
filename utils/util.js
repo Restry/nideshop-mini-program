@@ -175,6 +175,45 @@ function showNoIconToast(msg, duration = 2000, mask = false) {
   return duration;
 }
 
+/**
+ * 保存网络图片到相册
+ * @param {图片url} imgUrl
+ * @param {isSuccess：是否成功，isUserReject：是否用户拒绝} callback(isSuccess, isUserReject) 
+ */
+function saveImgToPhotosAlbum(imgUrl, callback){  
+  let that =this;
+  wx.downloadFile({  
+    url: imgUrl,  
+    success:function(res){  
+      console.log(res)  
+      wx.saveImageToPhotosAlbum({  
+        filePath: res.tempFilePath,  
+        success: function (res) {  
+          console.log(res)  
+          if(callback)
+          {
+            callback(true, false)
+          }
+        },  
+        fail: function (res) {  
+          console.log(res)  
+          if(callback)
+          {
+            callback(false, true)
+          }
+        }  
+      })  
+    },  
+    fail:function(res){  
+      console.log('fail')  
+      if(callback)
+      {
+        callback(false, false)
+      }
+    }  
+  })  
+}
+
 let cacheOnlineSystemConfig = null;
 
 /**
@@ -212,6 +251,7 @@ module.exports = {
   login,
   getUserInfo,
   getOnlineSystemConfig,
+  saveImgToPhotosAlbum,
 }
 
 

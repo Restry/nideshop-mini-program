@@ -11,6 +11,14 @@ Page({
         scrollTop: 0,
         showPage: false
     },
+    onShareAppMessage: function () {
+        return {
+          title: app.globalData.shareTitle,
+          desc: app.globalData.shareSubTitle,
+          path: '/pages/index/index'
+        }
+      },
+
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
         this.getTopic();
@@ -64,7 +72,7 @@ Page({
             that.setData({
               scrollTop: 0,
               topicList: res.data.data,
-              showPage: true,
+              showPage: res.data.count>0,
               count: res.data.count
             });
           }

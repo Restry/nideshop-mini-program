@@ -81,7 +81,7 @@
   width: 365rpx;
   margin-bottom: 6.25rpx;
   padding-bottom: 33.333rpx;
-  height: auto;
+  height: 462rpx;
   overflow: hidden;
   text-align: center;
 }
@@ -96,15 +96,19 @@
 }
 
 .cate-item .item .name{
-  display: block;
+  
   width: 365.625rpx;
-  height: 35rpx;
   margin: 11.5rpx 0 22rpx 0;
   text-align: center;
   overflow: hidden;
   padding: 0 20rpx;
   font-size: 30rpx;
   color: #333;
+
+  word-break:break-all;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
 }
 
 .cate-item .item .price{

@@ -71,7 +71,7 @@ Page({
       if (res.errno === 0) {
 
         that.data.isFeedbackOk = true;
-        let duration = util.showOkToast('我们已收到您的反馈，将尽快处理', 2000);
+        let duration = util.showOkToast('已收到您的意见', 2000);
 
         setTimeout(function () {  
           wx.navigateBack();  

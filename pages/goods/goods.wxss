@@ -55,7 +55,7 @@
 }
 
 .goods-info .name{
-    height: 41rpx;
+    height: auto;
     margin-bottom: 5.208rpx;
     font-size: 41rpx;
     line-height: 41rpx;
@@ -115,7 +115,7 @@
 
 .section-nav .i{
     float: right;
-    width: 52rpx;
+    width: auto;
     height: 52rpx;
     margin-right: 16rpx;
     margin-top: 35rpx;
@@ -424,6 +424,7 @@
     width: 750rpx;
     height: auto;
     overflow: hidden;
+    margin-bottom: 100rpx;
 }
 
 .related-goods .h{
@@ -512,12 +513,13 @@
     height: 100rpx;
     display: flex;
     background: #fff;
+    overflow: hidden;
 }
 
 .bottom-btn .l{
     float: left;
     height: 100rpx;
-    width: 162rpx;
+    width: 122rpx;
     border: 1px solid #f4f4f4;
     display: flex;
     align-items: center;
@@ -711,3 +713,6 @@
 }
 
 
+
+    
+    

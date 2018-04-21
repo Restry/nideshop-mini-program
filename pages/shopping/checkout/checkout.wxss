@@ -299,22 +299,91 @@ page{
     width: 100%;
     background: #fff;
     height: 200rpx;
-    padding: 18rpx 10rpx 10rpx 10rpx;
+    padding: 10rpx 10rpx 10rpx 10rpx;
     margin-bottom: 0rpx;
   }
+
+  .fb-body .h{
+    margin-left: 24rpx;
+    border-bottom: 1px solid #f4f4f4;
+    padding-right: 24rpx;
+}
   
   .fb-body .content{
     width: 100%;
     height: 80%;
     color: #333;
-    line-height: 40rpx;
+    margin-top: 10rpx;
     font-size: 28rpx;
+    padding-right: 24rpx;
   }
   
   .fb-body .text-count{
-    padding-top: 17rpx;
     line-height: 30rpx;
     float: right;
     color: #666;
     font-size: 24rpx;
   }
+
+
+
+.order-info{
+    margin-top: 20rpx;
+    padding-top: 25rpx;
+    background: #fff;
+    height: auto;
+    overflow: hidden;
+
+}
+
+.item-c{
+    margin-left: 31.25rpx;
+    border-top: 1px solid #f4f4f4;
+    height: 103rpx;
+    line-height: 103rpx;
+}
+
+.item-c .l{
+    float: left;
+}
+
+.item-c .r{
+    height: 103rpx;
+    float: right;
+    display: flex;
+    align-items: center;
+    padding-right: 16rpx;
+}
+
+.item-c .r .btn{
+    display: inline-block;
+    width: auto;
+    padding: 4px 30rpx 4px 30rpx;
+    line-height: 40rpx;
+    border: 1px solid green;
+    font-size: 30rpx;
+    color: green;
+    border-radius: 4px;
+    background-size: 10.75rpx 18.75rpx;
+}
+
+
+.item-c .cost{
+    color: #b4282d;
+}
+
+
+.item-d{
+    margin-left: 31.25rpx;
+    border-top: 1px solid #f4f4f4;
+    height: auto;
+    margin-bottom: 200rpx;
+}
+
+.item-d .content{
+    width:100%;
+    color: red;
+    word-break:break-all;
+    display:block;
+    overflow:hidden;
+}

@@ -87,12 +87,19 @@ Page({
   {
     let that = this;
 
-    var imgalist = [that.data.orderInfo.pay_qrcode];
-
-    wx.previewImage({  
-      current: imgalist,
-      urls: imgalist,
-    })
+    wx.showModal({
+      title: '付款流程提醒',
+      content: '请长按保存图片，再通过微信首页扫一扫-相册-选择此图-支付金额',
+      confirmText:'知道了',
+      showCancel:false,
+      success: function (res) {
+          var imgalist = [that.data.orderInfo.pay_qrcode];
+          wx.previewImage({  
+            current: imgalist,
+            urls: imgalist,
+          })
+      }
+    });
   },
 
   contactSeller()

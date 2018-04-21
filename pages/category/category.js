@@ -1,6 +1,8 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 
+//获取应用实例
+const app = getApp()
 Page({
   data: {
     // text:"这是一个页面"
@@ -14,6 +16,15 @@ Page({
     page: 1,
     size: 10000
   },
+
+  onShareAppMessage: function () {
+    return {
+      title: app.globalData.shareTitle,
+      desc: app.globalData.shareSubTitle,
+      path: '/pages/index/index'
+    }
+  },
+
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var that = this;

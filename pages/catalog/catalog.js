@@ -1,6 +1,9 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 
+//获取应用实例
+const app = getApp()
+
 Page({
   data: {
     navList: [],
@@ -11,6 +14,15 @@ Page({
     goodsCount: 0,
     scrollHeight: 0
   },
+  onShareAppMessage: function () {
+    return {
+      title: app.globalData.shareTitle,
+      desc: app.globalData.shareSubTitle,
+      path: '/pages/index/index'
+    }
+  },
+
+
   onLoad: function (options) {
     this.getCatalog();
   },

@@ -16,7 +16,14 @@ Page({
     checkedAllStatus: true,
     editCartList: []
   },
-
+  onShareAppMessage: function () {
+    return {
+      title: app.globalData.shareTitle,
+      desc: app.globalData.shareSubTitle,
+      path: '/pages/index/index'
+    }
+  },
+  
   onPullDownRefresh:function()
   {
     this.getCartList();

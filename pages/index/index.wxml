@@ -1,7 +1,7 @@
 
 <!--index.wxml-->
 <view class="container">
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500">
     <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
       <navigator wx:if="{{item.media_type==0}}" url="/pages/goods/goods?id={{item.media_id}}">
         <image src="{{item.image_url}}" background-size="cover"></image>
@@ -61,7 +61,7 @@
       </view>
     </view>
   </view>
-  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}" style="display: none;">
+  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../hotGoods/hotGoods">

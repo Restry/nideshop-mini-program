@@ -58,32 +58,42 @@ page{
 }
 
 .item-c .btn{
-    line-height: 66rpx;
-    border-radius: 5rpx;
-    text-align: center;
-    margin: 0 15rpx;
-    padding: 0 20rpx;
-    height: 66rpx;
+    display: inline-block;
+    width: auto;
+    padding: 4px 30rpx 4px 30rpx;
+    line-height: 40rpx;
+    border: 1px solid black;
+    font-size: 30rpx;
+    color: black;
+    border-radius: 4px;
+    background-size: 10.75rpx 18.75rpx;
+    margin-left: 10rpx;
 }
 
 .item-c .btnSafe{
-    line-height: 66rpx;
-    border-radius: 5rpx;
-    text-align: center;
-    color:green;
-    margin: 0 15rpx;
-    padding: 0 20rpx;
-    height: 66rpx;
+    display: inline-block;
+    width: auto;
+    padding: 4px 30rpx 4px 30rpx;
+    line-height: 40rpx;
+    border: 1px solid green;
+    font-size: 30rpx;
+    color: green;
+    border-radius: 4px;
+    background-size: 10.75rpx 18.75rpx;
+    margin-left: 10rpx;
 }
 
 .item-c .btnHight{
-    line-height: 66rpx;
-    border-radius: 5rpx;
-    text-align: center;
-    color:red;
-    margin: 0 15rpx;
-    padding: 0 20rpx;
-    height: 66rpx;
+    display: inline-block;
+    width: auto;
+    padding: 4px 30rpx 4px 30rpx;
+    line-height: 40rpx;
+    border: 1px solid orange;
+    font-size: 30rpx;
+    color: orange;
+    border-radius: 4px;
+    background-size: 10.75rpx 18.75rpx;
+    margin-left: 10rpx;
 }
 
 .item-c .btn.active{

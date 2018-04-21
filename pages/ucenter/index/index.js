@@ -8,6 +8,13 @@ Page({
     userInfo: {},
     providerContact: null, // 客服联系方式
   },
+  onShareAppMessage: function () {
+    return {
+      title: app.globalData.shareTitle,
+      desc: app.globalData.shareSubTitle,
+      path: '/pages/index/index'
+    }
+  },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     console.log(app.globalData)
@@ -61,7 +68,6 @@ Page({
   },
 
   contactUs(){
-    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     var that = this;
     wx.makePhoneCall({
       phoneNumber: that.data.providerContact
