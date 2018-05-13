@@ -1,4 +1,4 @@
-const ApiRootUrl = 'https://flyinthesky.cn/api/';
+const ApiRootUrl = 'https://api.xglxgj.com/api/';
 //const ApiRootUrl = 'http://127.0.0.1:8360/api/';
 
 module.exports = {
